@@ -20,8 +20,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-white/60 mb-6 max-w-md">
-              BloomRP is a premium FiveM roleplay server offering an immersive GTA V experience with a welcoming
-              community and custom features.
+              BloomRP is a premium FiveM RP server offering an immersive GTA V experience.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-white/60 hover:text-white transition-colors">
@@ -48,23 +47,23 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-white/60 hover:text-white transition-colors">
+                <a href="/#/" className="text-white/60 hover:text-white transition-colors">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/rules" className="text-white/60 hover:text-white transition-colors">
-                  Server Rules
+                <a href="/#/rules" className="text-white/60 hover:text-white transition-colors">
+                  Rules
                 </a>
               </li>
               <li>
-                <a href="/gallery" className="text-white/60 hover:text-white transition-colors">
+                <a href="/#/gallery" className="text-white/60 hover:text-white transition-colors">
                   Gallery
                 </a>
               </li>
               <li>
-                <a href="/faq" className="text-white/60 hover:text-white transition-colors">
-                  FAQ
+                <a href="/#/faq" className="text-white/60 hover:text-white transition-colors">
+                  Get Started
                 </a>
               </li>
             </ul>
