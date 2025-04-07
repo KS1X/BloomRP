@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+  color: #ffffff; /* Light text for contrast */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+  background-color: #1a1a1a; /* Dark card background */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+.read-the-docs {
+  color: #2EA67A; /* Subtle text color */
+}
+
+/* #1C4039
+#2EA67A
+#2EA67A
+#36BF7F
+#24734E */
