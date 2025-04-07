@@ -16,12 +16,11 @@ import RoleplayPossibilities from './homescreen/roleplaypossibilities.jsx'; // O
 
 function App() {
   return (
-    <Router basename="/bloomrp">
+    <Router>
       <Navbar />
       <Routes>
-        {/* Home Page */}
         <Route
-          path="/bloomrp"
+          path="/"
           element={
             <>
               <HeroSection />
@@ -32,7 +31,6 @@ function App() {
             </>
           }
         />
-        {/* Server Rules Page */}
         <Route 
         path="/rules" 
         element={
