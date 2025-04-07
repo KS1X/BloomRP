@@ -9,7 +9,6 @@ import Gallery from './homescreen/gallery.jsx';
 import ServerRulesPage from './serverinfo/serverrules.jsx'; // Import the new page
 import GalleryHeader from './gallary/galleryheader.jsx'; // Import the new page
 import GalleryGrid from './gallary/gallerygrid.jsx'; // Import the new page
-import GalleryCta from './gallary/gallerycta.jsx'; // Import the new page
 import FAQHeader from './faq/faqheader.jsx'; // Import the new page
 import GettingStarted from './faq/faqpage.jsx'; // Import the new page
 import FAQInfo from './faq/faqinfo.jsx'; // Import the new page
@@ -17,7 +16,7 @@ import RoleplayPossibilities from './homescreen/roleplaypossibilities.jsx'; // O
 
 function App() {
   return (
-    <Router>
+    <Router basename="/bloomrp">
       <Navbar />
       <Routes>
         {/* Home Page */}
