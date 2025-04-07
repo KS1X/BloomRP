@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useMotionValue } from "framer-motion";
+import { useMediaQuery } from "react-responsive"; // Import useMediaQuery
 
 function ParticleBackground() {
   return (
@@ -339,6 +340,7 @@ function HeroSection() {
   });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -514,6 +516,29 @@ function HeroSection() {
           className="right-[10%] bottom-[30%]"
         />
       </div>
+
+      {!isMobile && ( // Render only on non-mobile devices
+        <div className="absolute inset-0 overflow-hidden">
+          <LotusPetal
+            delay={0.6}
+            size={150}
+            rotate={45}
+            color="#2EA67A"
+            opacity={0.2}
+            pathVariant={2}
+            className="left-[30%] top-[20%]"
+          />
+          <LotusPetal
+            delay={0.8}
+            size={220}
+            rotate={45}
+            color="#24734E"
+            opacity={0.3}
+            pathVariant={4}
+            className="right-[20%] bottom-[5%]"
+          />
+        </div>
+      )}
 
       {/* Main content */}
       <div className="relative z-10 container mx-auto px-4">
