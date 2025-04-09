@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { useMediaQuery } from "react-responsive"; // Import useMediaQuery
 
@@ -7,11 +7,11 @@ function ParticleBackground() {
     <div className="absolute inset-0 overflow-hidden">
       <div className="absolute w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.05)_0%,transparent_70%)]" />
 
-      {Array.from({ length: 30 }).map((_, i) => {
-        const size = Math.random() * 3 + 1
-        const opacity = Math.random() * 0.3 + 0.1
-        const animationDuration = Math.random() * 20 + 10
-        const delay = Math.random() * 5
+      {Array.from({ length: 100 }).map((_, i) => {
+        const size = Math.random() * 3 + 1;
+        const opacity = Math.random() * 0.3 + 0.1;
+        const animationDuration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
 
         return (
           <motion.div
@@ -36,10 +36,10 @@ function ParticleBackground() {
               ease: "easeInOut",
             }}
           />
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
 function LotusPetal({
@@ -50,9 +50,6 @@ function LotusPetal({
   color = "#10b981",
   opacity = 0.15,
   pathVariant = 1,
-  mouseX,
-  mouseY,
-  reactIntensity = 0.02,
 }) {
   const petalPaths = [
     "M50,0 C70,30 90,60 50,100 C10,60 30,30 50,0",
@@ -63,33 +60,6 @@ function LotusPetal({
   ];
 
   const selectedPath = petalPaths[pathVariant % petalPaths.length];
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  useEffect(() => {
-    if (mouseX && mouseY) {
-      const updatePosition = () => {
-        const mouseXValue = mouseX.get();
-        const mouseYValue = mouseY.get();
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        const centerX = windowWidth / 2;
-        const centerY = windowHeight / 2;
-        const offsetX = (mouseXValue - centerX) * reactIntensity;
-        const offsetY = (mouseYValue - centerY) * reactIntensity;
-        x.set(offsetX);
-        y.set(offsetY);
-      };
-
-      const unsubscribeX = mouseX.onChange(updatePosition);
-      const unsubscribeY = mouseY.onChange(updatePosition);
-
-      return () => {
-        unsubscribeX();
-        unsubscribeY();
-      };
-    }
-  }, [mouseX, mouseY, reactIntensity, x, y]);
 
   return (
     <motion.div
@@ -110,10 +80,6 @@ function LotusPetal({
         opacity: { duration: 1.2 },
       }}
       className={`absolute ${className}`}
-      style={{
-        x,
-        y,
-      }}
     >
       <motion.div
         animate={{
@@ -167,27 +133,27 @@ function LotusPetal({
 }
 
 
-function AnimatedGradient() {
-  return (
-    <motion.div
-      className="absolute inset-0 opacity-30"
-      animate={{
-        background: [
-          "radial-gradient(circle at 30% 40%, rgba(16,185,129,0.1) 0%, transparent 50%)",
-          "radial-gradient(circle at 70% 60%, rgba(20,184,166,0.1) 0%, transparent 50%)",
-          "radial-gradient(circle at 40% 70%, rgba(5,150,105,0.1) 0%, transparent 50%)",
-          "radial-gradient(circle at 60% 30%, rgba(16,185,129,0.1) 0%, transparent 50%)",
-          "radial-gradient(circle at 30% 40%, rgba(16,185,129,0.1) 0%, transparent 50%)",
-        ],
-      }}
-      transition={{
-        duration: 20,
-        repeat: Number.POSITIVE_INFINITY,
-        ease: "linear",
-      }}
-    />
-  )
-}
+// function AnimatedGradient() {
+//   return (
+//     <motion.div
+//       className="absolute inset-0 opacity-30"
+//       animate={{
+//         background: [
+//           "radial-gradient(circle at 30% 40%, rgba(16,185,129,0.1) 0%, transparent 50%)",
+//           "radial-gradient(circle at 70% 60%, rgba(20,184,166,0.1) 0%, transparent 50%)",
+//           "radial-gradient(circle at 40% 70%, rgba(5,150,105,0.1) 0%, transparent 50%)",
+//           "radial-gradient(circle at 60% 30%, rgba(16,185,129,0.1) 0%, transparent 50%)",
+//           "radial-gradient(circle at 30% 40%, rgba(16,185,129,0.1) 0%, transparent 50%)",
+//         ],
+//       }}
+//       transition={{
+//         duration: 20,
+//         repeat: Number.POSITIVE_INFINITY,
+//         ease: "linear",
+//       }}
+//     />
+//   )
+// }
 
 
 function LotusFlowerGroup({
@@ -338,186 +304,18 @@ function HeroSection() {
       transition: { duration: 1, delay: 0.5 + i * 0.2, ease: "easeOut" },
     },
   });
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      mouseX.set(event.clientX);
-      mouseY.set(event.clientY);
-    };
+  const decorativeElements = useMemo(() => {
+    if (isMobile) return null;
 
-    window.addEventListener("mousemove", handleMouseMove);
+    return (
+      <>
+        <ParticleBackground />
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [mouseX, mouseY]);
-
-  return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
-      {/* Static gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#2EA67A]/[0.05] via-transparent to-[#24734E]/[0.05] blur-3xl" />
-
-      {/* Animated gradient background */}
-      <AnimatedGradient />
-
-      {/* Particle background */}
-      <ParticleBackground />
-      <ParticleBackground />
-      <ParticleBackground />
-      <ParticleBackground />
-      <ParticleBackground />
-
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <LotusPetal
-          delay={0.6}
-          size={150}
-          rotate={45}
-          color="#2EA67A"
-          opacity={0.2}
-          pathVariant={2}
-          className="left-[30%] top-[20%]"
-        />
-        <LotusPetal
-          delay={0.8}
-          size={220}
-          rotate={45}
-          color="#24734E"
-          opacity={0.3}
-          pathVariant={4}
-          className="right-[20%] bottom-[5%]"
-        />
-        <LotusPetal
-          delay={0.8}
-          size={120}
-          rotate={50}
-          color="#24734E"
-          opacity={0.3}
-          pathVariant={4}
-          className="left-[20%] bottom-[20%]"
-        />
-      <div className="absolute inset-0 flex items-center justify-center">
-      <div className="relative w-[80%] h-[80%]">
-        <LotusPetal // top right md petal for balance
-          delay={0.8}
-          size={460}
-          rotate={62}
-          color="#24734E"
-          opacity={0.4}
-          pathVariant={4}
-          className="right-[8%] top-[-30%]"
-        />
-          <LotusPetal // top right md petal for balance
-          delay={0.8}
-          size={460}
-          rotate={8}
-          color="#24734E"
-          opacity={0.3}
-          pathVariant={4}
-          className="right-[-2%] top-[-25%]"
-        />
-        <LotusPetal // top right md petal for balance
-          delay={0.8}
-          size={460}
-          rotate={45}
-          color="#24734E"
-          opacity={0.3}
-          pathVariant={4}
-          className="right-[0%] top-[-25%]"
-        />
-        <LotusPetal // top right petal for balance
-          delay={0.6}
-          size={600}
-          rotate={45}
-          color="#2EA67A"
-          opacity={0.2}
-          pathVariant={2}
-          className="right-[0%] top-[-30%]"
-        />
-      </div>
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-      <div className="relative w-[80%] h-[80%]">
-          <LotusPetal // top left LG petal for balance
-          delay={0.8}
-          size={500}
-          rotate={-120}
-          color="#24734E"
-          opacity={0.4}
-          pathVariant={4}
-          className="right-[70%] top-[-34%]"
-        />
-        <LotusPetal // top left LG petal for balance
-          delay={0.8}
-          size={380}
-          rotate={-130}
-          color="#24734E"
-          opacity={0.4}
-          pathVariant={4}
-          className="right-[70%] top-[-25%]"
-        /> 
-      </div>
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-      <div className="relative w-[80%] h-[80%]">
-        <LotusPetal // bottom left md petal for balance
-          delay={0.6}
-          size={380}
-          rotate={-310}
-          color="#24734E"
-          opacity={0.3}
-          pathVariant={4}
-          className="left-[-25%] bottom-[15%]"
-        />
-        <LotusPetal // bottom left LG MD petal for balance
-          delay={0.8}
-          size={520}
-          rotate={-300}
-          color="#24734E"
-          opacity={0.2}
-          pathVariant={4}
-          className="left-[-25%] bottom-[0%]"
-        />
-        <LotusPetal // bottom left SM MD petal for balance
-          delay={0.4}
-          size={320}
-          rotate={-300}
-          color="#24734E"
-          opacity={0.5}
-          pathVariant={4}
-          className="left-[-20%] bottom-[10%]"
-        />
-        <LotusPetal // bottom left md petal for balance
-          delay={0.6}
-          size={380}
-          rotate={-280}
-          color="#24734E"
-          opacity={0.3}
-          pathVariant={4}
-          className="left-[-20%] bottom-[0%]"
-        />
-      </div>
-      </div>
-        <LotusFlowerGroup
-          delay={0.6}
-          size={330}
-          rotate={0}
-          baseColor="#2EA67A"
-          className="left-[5%] top-[20%]"
-        />
-        <LotusFlowerGroup
-          delay={0.8}
-          size={460}
-          rotate={45}
-          baseColor="#24734E"
-          className="right-[10%] bottom-[30%]"
-        />
-      </div>
-
-      {!isMobile && ( // Render only on non-mobile devices
         <div className="absolute inset-0 overflow-hidden">
           <LotusPetal
             delay={0.6}
@@ -537,10 +335,72 @@ function HeroSection() {
             pathVariant={4}
             className="right-[20%] bottom-[5%]"
           />
-        </div>
-      )}
+          <LotusPetal
+            delay={0.8}
+            size={120}
+            rotate={50}
+            color="#24734E"
+            opacity={0.3}
+            pathVariant={4}
+            className="left-[20%] bottom-[20%]"
+          />
 
-      {/* Main content */}
+          {/* Top Right Group */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-[80%] h-[80%]">
+              <LotusPetal delay={0.8} size={460} rotate={62} color="#24734E" opacity={0.4} pathVariant={4} className="right-[8%] top-[-30%]" />
+              <LotusPetal delay={0.8} size={460} rotate={8} color="#24734E" opacity={0.3} pathVariant={4} className="right-[-2%] top-[-25%]" />
+              <LotusPetal delay={0.8} size={460} rotate={45} color="#24734E" opacity={0.3} pathVariant={4} className="right-[0%] top-[-25%]" />
+              <LotusPetal delay={0.6} size={600} rotate={45} color="#2EA67A" opacity={0.2} pathVariant={2} className="right-[0%] top-[-30%]" />
+            </div>
+          </div>
+
+          {/* Top Left Group */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-[80%] h-[80%]">
+              <LotusPetal delay={0.8} size={500} rotate={-120} color="#24734E" opacity={0.4} pathVariant={4} className="right-[70%] top-[-34%]" />
+              <LotusPetal delay={0.8} size={380} rotate={-130} color="#24734E" opacity={0.4} pathVariant={4} className="right-[70%] top-[-25%]" />
+            </div>
+          </div>
+
+          {/* Bottom Left Group */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-[80%] h-[80%]">
+              <LotusPetal delay={0.6} size={380} rotate={-310} color="#24734E" opacity={0.3} pathVariant={4} className="left-[-25%] bottom-[15%]" />
+              <LotusPetal delay={0.8} size={520} rotate={-300} color="#24734E" opacity={0.2} pathVariant={4} className="left-[-25%] bottom-[0%]" />
+              <LotusPetal delay={0.4} size={320} rotate={-300} color="#24734E" opacity={0.5} pathVariant={4} className="left-[-20%] bottom-[10%]" />
+              <LotusPetal delay={0.6} size={380} rotate={-280} color="#24734E" opacity={0.3} pathVariant={4} className="left-[-20%] bottom-[0%]" />
+            </div>
+          </div>
+
+          {/* Lotus Flower Groups */}
+          <LotusFlowerGroup
+            delay={0.6}
+            size={330}
+            rotate={0}
+            baseColor="#2EA67A"
+            className="left-[5%] top-[20%]"
+            mouseX={mouseX}
+            mouseY={mouseY}
+          />
+          <LotusFlowerGroup
+            delay={0.8}
+            size={460}
+            rotate={45}
+            baseColor="#24734E"
+            className="right-[10%] bottom-[30%]"
+            mouseX={mouseX}
+            mouseY={mouseY}
+          />
+        </div>
+      </>
+    );
+  }, [isMobile]);
+
+  return (
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2EA67A]/[0.05] via-transparent to-[#24734E]/[0.05] blur-3xl" />
+      {decorativeElements}
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
@@ -569,8 +429,6 @@ function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
     </div>
   );
