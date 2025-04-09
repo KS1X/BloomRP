@@ -32,12 +32,12 @@ function App() {
           }
         />
         <Route 
-        path="/#/rules" 
+        path="/rules" 
         element={
         <ServerRulesPage />
         } />
         <Route 
-        path="/#/gallery" 
+        path="/gallery" 
         element={
           <>
           <GalleryHeader />
@@ -46,7 +46,7 @@ function App() {
           </>
         } />
         <Route 
-        path="/#/faq" 
+        path="/faq" 
         element={
           <>
           <FAQHeader />
