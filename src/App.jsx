@@ -6,13 +6,13 @@ import CallToAction from './homescreen/calltoaction.jsx';
 import Features from './homescreen/features.jsx';
 import Footer from './homescreen/footer.jsx';
 import Gallery from './homescreen/gallery.jsx';
-import ServerRulesPage from './serverinfo/serverrules.jsx'; // Import the new page
-import GalleryHeader from './gallary/galleryheader.jsx'; // Import the new page
-import GalleryGrid from './gallary/gallerygrid.jsx'; // Import the new page
-import FAQHeader from './faq/faqheader.jsx'; // Import the new page
-import GettingStarted from './faq/faqpage.jsx'; // Import the new page
-import FAQInfo from './faq/faqinfo.jsx'; // Import the new page
-import RoleplayPossibilities from './homescreen/roleplaypossibilities.jsx'; // Optional: if you want to include this in the app
+import ServerRulesPage from './serverinfo/serverrules.jsx';
+import GalleryHeader from './gallary/galleryheader.jsx';
+import GalleryGrid from './gallary/gallerygrid.jsx';
+import FAQHeader from './faq/faqheader.jsx';
+import GettingStarted from './faq/faqpage.jsx';
+import FAQInfo from './faq/faqinfo.jsx';
+import RoleplayPossibilities from './homescreen/roleplaypossibilities.jsx';
 
 function App() {
   return (
@@ -32,28 +32,29 @@ function App() {
           }
         />
         <Route 
-        path="/#/rules" 
-        element={
-        <ServerRulesPage />
-        } />
+          path="/rules" 
+          element={<ServerRulesPage />} 
+        />
         <Route 
-        path="/#/gallery" 
-        element={
-          <>
-          <GalleryHeader />
-          <GalleryGrid />
-          <CallToAction />
-          </>
-        } />
+          path="/gallery" 
+          element={
+            <>
+              <GalleryHeader />
+              <GalleryGrid />
+              <CallToAction />
+            </>
+          } 
+        />
         <Route 
-        path="/#/faq" 
-        element={
-          <>
-          <FAQHeader />
-          <GettingStarted />
-          <FAQInfo />
-          </>
-        } />
+          path="/faq" 
+          element={
+            <>
+              <FAQHeader />
+              <GettingStarted />
+              <FAQInfo />
+            </>
+          } 
+        />
       </Routes>
       <Footer />
     </Router>
