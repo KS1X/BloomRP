@@ -75,9 +75,13 @@ export default function Navbar() {
                     {item.name}
                   </a>
                 ))}
-                <button className="bg-[#2EA67A] hover:bg-[#24734E] text-white w-full px-4 py-2 rounded">
-                  Join Now
-                </button>
+                  <a
+                    href="/#/faq"
+                    className="bg-[#2EA67A] hover:bg-[#24734E] text-white w-full px-4 py-2 rounded text-center"
+                    onClick={toggleMenu}
+                  >
+                    Join Now
+                  </a>
               </div>
             </div>
           </motion.div>
