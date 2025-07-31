@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function FAQHeader() {
+export default function DonationHeader() {
   return (
-    <header className="relative text-center py-20 overflow-hidden bg-[#0a0a0a]">
+    <header className="relative text-center py-24 overflow-hidden bg-[#030303]">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#2EA67A]/[0.05] via-transparent to-[#24734E]/[0.05] blur-3xl -z-10" />
 
@@ -23,22 +23,22 @@ export default function FAQHeader() {
 
       {/* Title */}
       <motion.h1
-        className="text-5xl sm:text-6xl font-extrabold text-transparent bg-clip-text text-white mb-6"
+        className="text-4xl sm:text-6xl font-bold mb-4 tracking-tight text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        How to Get Started
+        Support BloomRP
       </motion.h1>
 
       {/* Subtitle */}
       <motion.p
-        className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80"
+        className="text-white/70 text-md md:text-xl max-w-2xl mx-auto leading-relaxed mb-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        Find answers to the most common questions about BloomRP. If you can't find what you're looking for, feel free to contact us!
+        Help us continue providing the best roleplay experience for our community
       </motion.p>
     </header>
   );

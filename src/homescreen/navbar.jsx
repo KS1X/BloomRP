@@ -12,7 +12,7 @@ export default function Navbar() {
     { name: "Rules", href: "/#/rules" },
     { name: "Gallery", href: "/#/gallery" },
     { name: "Get Started", href: "/#/faq" },
-
+    { name: "Donate", href: "/#/donation" },
   ];
 
   return (
@@ -22,9 +22,9 @@ export default function Navbar() {
           <div className="flex items-center">
             <a href="/" className="flex items-center">
                 <img
-                  src="/images/Mylogo.png" // Replace with the actual path to your logo image
+                  src="/images/Mylogo.png" // Path to logo image
                   alt="Bloom Logo"
-                  className="h-8 w-8 mr-2" // Adjust size and spacing as needed
+                  className="h-8 w-8 mr-2" // Adjust size & spacing as needed
                 />
               <span className="text-white font-bold font-[Pacifico] text-xl">
                 Bloom<span className="text-[#2EA67A]">RP</span>

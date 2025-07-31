@@ -7,12 +7,12 @@ import Features from './homescreen/features.jsx';
 import Footer from './homescreen/footer.jsx';
 import Gallery from './homescreen/gallery.jsx';
 import ServerRulesPage from './serverinfo/serverrules.jsx';
-import GalleryHeader from './gallary/galleryheader.jsx';
-import GalleryGrid from './gallary/gallerygrid.jsx';
-import FAQHeader from './faq/faqheader.jsx';
+import GalleryHeader from './gallery/galleryheader.jsx';
+import GalleryGrid from './gallery/gallerygrid.jsx';
 import GettingStarted from './faq/faqpage.jsx';
 import FAQInfo from './faq/faqinfo.jsx';
-import RoleplayPossibilities from './homescreen/roleplaypossibilities.jsx';
+import RoleplayPossibilities from './homescreen/RoleplayPossibilitiesCSS.jsx';
+import DonationCta from './donation/donationcta.tsx';
 
 function App() {
   return (
@@ -46,14 +46,21 @@ function App() {
           } 
         />
         <Route 
+          path="/donation" 
+          element={
+            <>
+              <DonationCta />
+            </>
+          } 
+        />
+        <Route 
           path="/faq" 
           element={
             <>
-              <FAQHeader />
               <GettingStarted />
               <FAQInfo />
             </>
-          } 
+          }
         />
       </Routes>
       <Footer />

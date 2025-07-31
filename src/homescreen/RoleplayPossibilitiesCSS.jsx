@@ -1,5 +1,4 @@
-import React, { memo, useMemo } from "react";
-import { motion } from "framer-motion";
+import React, { memo } from "react";
 
 // Define sentences and tag a few as "highlighted" - moved outside component to prevent recreation
 const sentences = [
@@ -46,48 +45,32 @@ const TickerItem = memo(({ item, index }) => (
 
 TickerItem.displayName = 'TickerItem';
 
-export default function RoleplayTicker() {
-  // Memoize the animation configuration to prevent recreation
-  const animationConfig = useMemo(
-    () => ({
-      x: ["0%", "-50%"],
-    }),
-    []
-  );
-
-  const transitionConfig = useMemo(
-    () => ({
-      repeat: Infinity,
-      repeatType: "loop",
-      ease: "linear",
-      duration: 30,
-    }),
-    []
-  );
-
-  // Memoize the ticker items to prevent unnecessary re-renders
-  const tickerItems = useMemo(
-    () =>
-      scrollingText.map((item, index) => (
-        <TickerItem key={`${item.text}-${index}`} item={item} index={index} />
-      )),
-    []
-  );
-
+export default function RoleplayTickerCSS() {
   return (
-    <section className="bg-[#0a0a0a] py-12 overflow-hidden border-t border-white/10">
-      <div className="relative w-full whitespace-nowrap">
-        <motion.div
-          className="flex gap-12 text-white/80 text-lg font-light px-4"
-          animate={animationConfig}
-          transition={transitionConfig}
-          style={{
-            willChange: 'transform', // Optimize for animations
-          }}
-        >
-          {tickerItems}
-        </motion.div>
-      </div>
-    </section>
+    <>
+      <style>{`
+        @keyframes ticker-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .ticker-animate {
+          animation: ticker-scroll 30s linear infinite;
+          will-change: transform;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .ticker-animate { animation-play-state: paused; }
+        }
+      `}</style>
+      
+      <section className="bg-[#0a0a0a] py-12 overflow-hidden border-t border-white/10">
+        <div className="relative w-full whitespace-nowrap">
+          <div className="flex gap-12 text-white/80 text-lg font-light px-4 ticker-animate">
+            {scrollingText.map((item, index) => (
+              <TickerItem key={`${item.text}-${index}`} item={item} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

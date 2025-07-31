@@ -1,6 +1,5 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faTwitter, faYoutube, faTwitch } from "@fortawesome/free-brands-svg-icons";
+import { faDiscord, faYoutube, faTwitch, faKickstarter } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -27,21 +26,21 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="flex space-x-6">
-            <a href="#" className="text-white/60 hover:text-white transition-colors">
-              <FontAwesomeIcon icon={faDiscord} className="h-6 w-6" />
+            <a href="https://discord.gg/s2W9YyJSfz" className="text-white/60 hover:text-white transition-colors">
+              <FontAwesomeIcon icon={faDiscord} className="h-6 w-6"/>
               <span className="sr-only">Discord</span>
             </a>
-            <a href="#" className="text-white/60 hover:text-white transition-colors">
-              <FontAwesomeIcon icon={faTwitter} className="h-6 w-6" />
-              <span className="sr-only">Twitter</span>
-            </a>
-            <a href="#" className="text-white/60 hover:text-white transition-colors">
-              <FontAwesomeIcon icon={faYoutube} className="h-6 w-6" />
+            <a href="https://www.youtube.com/watch?v=sMIpBRjwoEg" className="text-white/60 hover:text-white transition-colors">
+              <FontAwesomeIcon icon={faYoutube} className="h-6 w-6"/>
               <span className="sr-only">YouTube</span>
             </a>
-            <a href="#" className="text-white/60 hover:text-white transition-colors">
+            <a href="https://kick.com/bloomrp" className="text-white/60 hover:text-white transition-colors">
               <FontAwesomeIcon icon={faTwitch} className="h-6 w-6" />
               <span className="sr-only">Twitch</span>
+            </a>
+            <a href="https://kick.com/bloomrp" className="text-white/60 hover:text-white transition-colors">
+              <FontAwesomeIcon icon={faKickstarter} className="h-6 w-6" />
+              <span className="sr-only">Kick</span>
             </a>
           </div>
         </div>
@@ -50,7 +49,7 @@ export default function Footer() {
         <div className="mt-8 border-t border-white/10 pt-4 text-center text-white/40 text-sm">
           <p>
             © {new Date().getFullYear()} BloomRP. All rights reserved. Not affiliated with Rockstar Games or Take-Two
-            Interactive.
+            Interactive. Managed by BloomHQ LLC.
           </p>
         </div>
       </div>

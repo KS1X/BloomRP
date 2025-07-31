@@ -50,9 +50,9 @@ export default function CallToAction() {
     <section className="relative overflow-hidden py-24 bg-[#0a0a0a]">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/gtabg3.jpg"
+            src="/images/bg_image.png"
             alt="GTA V City Background"
-            className="w-full h-full object-cover opacity-10 filter grayscale brightness-50"
+            className="w-full h-full object-cover opacity-15 filter grayscale brightness-50"
           />
         </div>
       < PBackground />

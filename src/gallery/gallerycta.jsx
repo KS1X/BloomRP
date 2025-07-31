@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function GalleryCta() {
   return (
     <footer className="text-center py-16 bg-[#030303]">
