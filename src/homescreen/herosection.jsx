@@ -625,7 +625,7 @@ function HeroSection() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
             >
               <motion.a
-                href="#features"
+                href="#faq"
                 whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(46, 166, 122, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
                 className="group relative px-8 py-4 bg-gradient-to-r from-[#2EA67A] to-[#24734E] text-white font-semibold rounded-full overflow-hidden transition-all duration-300"
