@@ -6,88 +6,82 @@ import { UnifiedParticles, FloatingElements, BackgroundGradients, SectionTransit
 
 const topics = [
   {
-    title: "How to Use the Phone",
+    title: "Set your Keybinds",
     description:
-      "Press `F1` to open your phone. Use apps like Messages, Twitter, Yellow Pages, or Services. Download new apps via the App Store.",
-    media: "/images/example.png",
+      "Open the settings menu (ESC > Settings) and navigate to the Keybinds tab. Set your preferred keys for actions like opening the phone, inventory, and interaction menu. We highly recommend reviewing your keybinds to ensure a smooth experience.",
+    media: "/images/gtabg2.jpg",
   },
   {
-    title: "How to Get a Job",
+    title: "Customize your UI",
     description:
-      "Open your phone > Job Center or visit the in-game Job Center. Choose starter jobs like Taxi Driver, Delivery, or Sanitation.",
-      media: "/images/example.png",
+      "You can customize your UI by going to the settings menu (ESC > UI) and navigating to the Interface tab. Here you can adjust various UI elements such as chat size, minimap position, notifications, and much more to suit your preferences.",
+    media: "/images/image10.jpg",
   },
   {
-    title: "How to Rent a Car",
+    title: "Rent a Car",
     description:
-      "Visit the car rental lot marked on the map. Choose a vehicle, pay the fee, and it will spawn nearby.",
-      media: "/images/example.png",
+      "When you first arrive in the city, getting around on foot can be difficult. Vehicle rental agents are available around the city; visit a rental stand to obtain a rental vehicle! Just make sure you return the vehicle to avoid extra fees.",
+    media: "/images/image11.jpg",
   },
   {
-    title: "How to Buy a Car",
+    title: "Use the Phone",
     description:
-      "Visit a car dealership. Browse, test drive, and purchase using your bank balance. Requires a valid license.",
-      media: "/images/example.png",
+      "The default keybind `F1` is used to open the phone. Share your contact information with others using AirDrop. See the settings app for more options and customization. Make sure to explore all available apps on the app store!",
+    media: "/images/phone.png",
   },
   {
-    title: "How to Get an Apartment",
+    title: "Get a Job",
     description:
-      "Go to a real estate building or map marker. Interact with the door to rent. Use `/setspawn` to spawn there.",
-      media: "/images/example.png",
+      "A vast array of jobs are available in the city. Most jobs can be found around the city and don't require whitelisting. Businesses might be hiring; visit yellow pages or try to contact business managers. You'll have to apply for whitelisted jobs such as Police or EMS.",
+    media: "/images/image6.png",
   },
   {
-    title: "How to Get Licenses (Car, Boat, Firearms)",
+    title: "Get Licenses (Car, Boat, Firearms)",
     description:
-      "Head to the DMV. Complete a theory and practical test. Firearms may require a background check.",
-      media: "/images/example.png",
+      "Government buildings with different licensing services are available. New residents have ID cards, not driver's licenses. You can obtain a driver's license by visiting the DMV and passing the required tests. Boat and firearm licenses are also available through the same process.",
+    media: "/images/image13.jpg",
   },
   {
-    title: "How to Change Your Character’s Appearance",
+    title: "Buy a Car",
     description:
-      "Visit a clothing store, barber shop, or plastic surgeon. Save outfits and change looks anytime.",
-      media: "/images/example.png",
+      "Vehicle dealerships are available throughout the city, all with different vehicles to browse and test drive. Financing options are available for most vehicles, but you can also pay in full. Make sure to have a valid driver's license before purchasing a vehicle.",
+    media: "/images/cardealer.jpg",
   },
   {
-    title: "How to Call EMS",
+    title: "Get an Apartment",
     description:
-      "Use Phone > Services > EMS or type `/911 EMS` with your location. Stay nearby for help to arrive.",
-      media: "/images/example.png",
+      "Apartments can be found throughout the city. Check online listings or contact real estate agents for availability.",
+    media: "/images/apartments.png",
   },
   {
-    title: "How to Call Police",
+    title: "Change Your Character’s Appearance",
     description:
-      "Use Phone > Services > Police or type `/911 Police` in chat with your location and message.",
-      media: "/images/example.png",
+      "Visit a clothing store, barber shop, or plastic surgeon at the hospital. Save outfits and change your look anytime.",
+    media: "/images/binco.png",
   },
   {
-    title: "How to Do Crime",
+    title: "Join or Start a Business",
     description:
-      "Try car boosting, house robbery, or pickpocketing. Get tools from black market NPCs. Be discreet — cops may be watching.",
-      media: "/images/example.png",
+      "To join an existing business, reach out to the owner or check for open positions. You can start your own business anytime, but some businesses may require whitelisting.",
+    media: "/images/casino.png",
   },
   {
-    title: "How to Get Whitelisted Jobs",
+    title: "Join a Gang",
     description:
-      "Apply on our Discord or website. Includes Police, EMS, DOJ, Mechanic, and more. Some require interviews.",
-        media: "/images/example.png",
+      "Roleplay and earn trust with existing gangs. Loyalty and immersion lead to invites. Gangs offer unique RP opportunities. New gangs have requirements, so be prepared to prove yourself. See server rules for more info.",
+    media: "/images/image7.jpg",
   },
   {
-    title: "How to Start a Business",
+    title: "Buy a House",
     description:
-      "Submit a business proposal in Discord. Staff will help you set up. Manage inventory, finances, and hiring in-game.",
-      media: "/images/example.png",
+      "Use the phone or work with a real estate agent. Houses offer privacy and valuable storage space.",
+    media: "/images/livingroom.png",
   },
   {
-    title: "How to Join a Gang",
+    title: "Hygiene and Health",
     description:
-      "Roleplay and earn trust with existing gangs. Loyalty and immersion lead to invites. Gangs offer unique RP opportunities.",
-      media: "/images/example.png",
-  },
-  {
-    title: "How to Buy a House",
-    description:
-      "Use the phone or work with a real estate agent. Houses offer garages, storage, and spawning privileges.",
-      media: "/images/example.png",
+      "Maintain your character's hygiene and health by using the shower, eating food, and visiting a doctor when injured.",
+    media: "/images/hosphall.png",
   },
 ];
 
@@ -212,11 +206,11 @@ export default function GettingStarted() {
               transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              Still have questions? Join the Discord or type{" "}
+              Still have questions? Join the Discord & type{" "}
               <code className="bg-gradient-to-r from-[#2EA67A]/20 to-[#24734E]/20 px-3 py-1 rounded-lg border border-[#2EA67A]/30 text-[#2EA67A] font-mono">
                 /help
               </code>{" "}
-              in-game.
+              for assistance.
             </motion.p>
             
             <motion.a

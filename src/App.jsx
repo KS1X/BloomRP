@@ -11,6 +11,7 @@ import GalleryHeader from './gallery/galleryheader.jsx';
 import GalleryGrid from './gallery/gallerygrid.jsx';
 import GettingStarted from './faq/faqpage.jsx';
 import FAQInfo from './faq/faqinfo.jsx';
+import CityLaws from './laws/citylaws.jsx';
 import RoleplayPossibilities from './homescreen/RoleplayPossibilities.jsx';
 import DonationCta from './donation/donationcta.jsx';
 
@@ -59,6 +60,14 @@ function App() {
             <>
               <GettingStarted />
               <FAQInfo />
+            </>
+          }
+        />
+        <Route 
+          path="/laws" 
+          element={
+            <>
+              <CityLaws />
             </>
           }
         />
