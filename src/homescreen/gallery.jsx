@@ -6,9 +6,9 @@ export default function Gallery() {
     { src: "/images/image1.png", alt: "Roleplay Scene 1" },
     { src: "/images/image2.png", alt: "Roleplay Scene 2" },
     { src: "/images/image6.png", alt: "Roleplay Scene 3" },
-    { src: "/images/image7.jpg", alt: "Roleplay Scene 4" },
+    { src: "/images/image19.png", alt: "Roleplay Scene 4" },
     { src: "/images/image5.png", alt: "Roleplay Scene 5" },
-    { src: "/images/image9.jpg", alt: "Roleplay Scene 6" },
+    { src: "/images/image22.png", alt: "Roleplay Scene 6" },
   ];
 
   return (

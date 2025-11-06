@@ -57,8 +57,8 @@ export default function DonationCta() {
     },
     {
       icon: <FontAwesomeIcon icon={faDollarSign} className="h-8 w-8 text-[#2EA67A]" />,
-      title: "Staff Support",
-      description: "Support our volunteer staff team and community moderators"
+      title: "Maintenance & Support",
+      description: "Cover ongoing subscription costs and ensure smooth server operations"
     }
   ];
 

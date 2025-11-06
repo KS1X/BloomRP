@@ -95,9 +95,9 @@ export default function CallToAction() {
                 {/* Server Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { title: "500+", desc: "Active Players" },
-              { title: "24/7", desc: "Server Uptime" },
-              { title: "100+", desc: "Custom Scripts" },
+              { title: "99.9%", desc: "Server Uptime" },
+              { title: "24/7", desc: "Active Players" },
+              { title: "300+", desc: "Custom Scripts" },
             ].map((stat, i) => (
               <div
                 key={i}
